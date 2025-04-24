@@ -20,7 +20,7 @@ class FactoryMethod extends Command
      *
      * @var string
      */
-    protected $description = 'Example work factory method';
+    protected $description = 'Example work factory method. Selecting a sender service (sms/email).';
 
     /**
      * Execute the console command.

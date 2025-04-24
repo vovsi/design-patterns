@@ -20,7 +20,7 @@ class AbstractFactory extends Command
      *
      * @var string
      */
-    protected $description = 'Example work abstract factory';
+    protected $description = 'Example work abstract factory. Selecting a design mode (dark/light).';
 
     /**
      * Execute the console command.
