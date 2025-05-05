@@ -31,19 +31,18 @@ class Composite extends Command
      */
     public function handle()
     {
-        $userBuilder = User::query();
-
         $this->info('Filter sort desc:');
         $sortFilter = new SortFilter('id', 'desc');
-        $this->showUsers($sortFilter->apply($userBuilder));
+        $this->showUsers($sortFilter->apply(User::query()));
 
         $this->info('Filter search by password "123":');
         $searchFilter = new SearchFilter('password', '123');
-        $this->showUsers($searchFilter->apply($userBuilder));
+        $this->showUsers($searchFilter->apply(User::query()));
 
         $this->info('Filter with group (sort=desc + pass=123):');
-        $groupFilter = new GroupFilter([$sortFilter, $searchFilter]);
-        $this->showUsers($groupFilter->apply($userBuilder));
+        $groupFilter = new GroupFilter([$sortFilter]);
+        $groupFilter->add($searchFilter);
+        $this->showUsers($groupFilter->apply(User::query()));
     }
 
     protected function showUsers(Builder $builder)
