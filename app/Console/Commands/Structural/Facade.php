@@ -23,7 +23,7 @@ class Facade extends Command
      *
      * @var string
      */
-    protected $description = 'Example work facade. ';
+    protected $description = 'Example work facade. Currency converter.';
 
     /**
      * Execute the console command.
